@@ -17,7 +17,8 @@ expose, follow these steps:
    the default lib/main.cpp.
   * Proper Transport: THttpServerTransportFactory
   * Proper Protocol: TJSONProtocolFactory
-5. Implement your custom behavior for the server, and integrate it with your
+5. Update frontend/index.html to use the appropriate generated scripts
+6. Implement your custom behavior for the server, and integrate it with your
    frontend JS. Have fun!
 
 ### Enhance your project with good logging
