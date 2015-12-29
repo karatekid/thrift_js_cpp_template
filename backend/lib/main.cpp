@@ -9,8 +9,6 @@
 #include <thrift/transport/TServerSocket.h>
 #include <thrift/transport/THttpServer.h>
 
-#include <iostream>
-
 using namespace ::apache::thrift;
 using namespace ::apache::thrift::protocol;
 using namespace ::apache::thrift::transport;
@@ -22,19 +20,19 @@ class ExampleServiceHandler : virtual public ExampleServiceIf {
  public:
   ExampleServiceHandler() {
     // Your initialization goes here
-    printf("Initializing service handler");
+    LOG(DEBUG) << "Initializing Service Handler";
   }
 
   int32_t setExampleStruct(const  ::ExampleStruct& t) {
     // Your implementation goes here
-    printf("setExampleStruct\n");
+    LOG(DEBUG) << "setExampleStruct";
     value = t;
     return 0;
   }
 
   void getExampleStruct( ::ExampleStruct& _return) {
     // Your implementation goes here
-    printf("getExampleStruct\n");
+    LOG(DEBUG) << "getExampleStruct";
     _return = value;
   }
 
