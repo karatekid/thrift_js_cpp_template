@@ -18,6 +18,7 @@ INCLUDE_PATHS= -I$(IDIR) \
 			   -I$(GEN_CPP_DIR)
 #Files
 # Call thrift with the MAIN_IDL
+# TODO: Change these to your own thrift files 
 _MAIN_IDL= ExampleService.thrift
 MAIN_IDL=$(patsubst %,$(IDL_DIR)/%,$(_MAIN_IDL))
 _IDL= ExampleStruct.thrift \
