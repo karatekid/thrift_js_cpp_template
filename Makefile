@@ -18,9 +18,9 @@ INCLUDE_PATHS= -I$(IDIR) \
 			   -I$(GEN_CPP_DIR)
 #Files
 # Call thrift with the MAIN_IDL
-_MAIN_IDL= template_service.thrift
+_MAIN_IDL= ExampleService.thrift
 MAIN_IDL=$(patsubst %,$(IDL_DIR)/%,$(_MAIN_IDL))
-_IDL= template.thrift \
+_IDL= ExampleStruct.thrift \
 	  $(_MAIN_IDL)
 IDL=$(patsubst %,$(IDL_DIR)/%,$(_IDL))
 _GEN_SRC_CONST=$(_IDL:.thrift=_constants.cpp)
@@ -42,7 +42,7 @@ BINFILE= run
 SRC= main.cpp
 _OBJ=$(SRC:.cpp=.o)
 OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ)) $(GEN_OBJ)
-_DEPS=
+_DEPS= easylogging++.h
 DEPS=$(patsubst %,$(IDIR)/%,$(_DEPS)) $(GEN_DEPS)
 
 #Flag Handling
