@@ -25,7 +25,7 @@ class ExampleServiceHandler : virtual public ExampleServiceIf {
 
   int32_t setExampleStruct(const  ::ExampleStruct& t) {
     // Your implementation goes here
-    LOG(DEBUG) << "setExampleStruct";
+    LOG(DEBUG) << "setExampleStruct w/ exampleField: " << t.exampleField;
     value = t;
     return 0;
   }
@@ -34,6 +34,8 @@ class ExampleServiceHandler : virtual public ExampleServiceIf {
     // Your implementation goes here
     LOG(DEBUG) << "getExampleStruct";
     _return = value;
+    // Change the return value
+    _return.exampleField *= 2;
   }
 
  private:

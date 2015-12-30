@@ -21,8 +21,21 @@
 
 <body>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12" id="graph">
+  <div id="example-div">
+    <div class="row">
+      <div class="col-md-4">
+          <input type="text" data-bind="value: exampleField"/>
+      </div>
+      <div class="col-md-4">
+        <button id="set-btn" class="btn btn-primary">Set ExampleField</button>
+      </div>
+      <div class="col-md-4">
+        <button id="get-btn" class="btn btn-warning">Get ExampleField</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" id="graph">
+      </div>
     </div>
   </div>
 </div>
@@ -40,7 +53,7 @@
 TODO: Update w/ appropriate file names for generated JS-->
 <script src="gen-js/ExampleStruct_types.js"                                    type="text/javascript"></script>
 <script src="gen-js/ExampleService_types.js"                                   type="text/javascript"></script>
-<script src="gen-js/ExampleServce.js"                                          type="text/javascript"></script>
+<script src="gen-js/ExampleService.js"                                         type="text/javascript"></script>
 
 <!-- Main js files -->
 <script src="js/lib/require.js" data-main="js/main"                            type="text/javascript"></script>
