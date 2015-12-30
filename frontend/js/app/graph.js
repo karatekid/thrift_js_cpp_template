@@ -63,26 +63,15 @@ define(["lib/d3.min"], function(d3) {
         xAxisGraph.call(xAxis);
         yAxisGraph.call(yAxis);
 
+        // NOTE: Not following d3 methodology of update, enter, exit
+        // Get rid of old path
+        lineContainer.selectAll("path").remove();
+        // Draw new path
         var myLine = lineContainer.append("path")
             .datum(data)
             .attr("class", "line")
             .attr("d", line);
-        /*
-        // Get Lines
-        var lines = lineContainer.selectAll("path").data(data);
-        // Update only
-        // Enter only
-        lines.enter()
-            .append("path")
-            .attr("class", "line");
-        // Update & enter
-        lines.select("path")
-            .attr("d", line);
-        // Exit
-        lines.exit().remove();
-        */
     };
-    update([0, 1, 2, 3, 5]);
 
     function splitD3Transform(elt) {
         var transformString = elt.attr("transform");
