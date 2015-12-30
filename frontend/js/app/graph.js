@@ -1,3 +1,4 @@
+// Adapted from Line Chart example: http://bl.ocks.org/mbostock/3883245
 define(["lib/d3.min"], function(d3) {
     // Visuals
     var margin = {top: 40, right: 30, bottom: 30, left: 50},
@@ -30,15 +31,19 @@ define(["lib/d3.min"], function(d3) {
     // SVG Creation / update
     var svg = d3.select("#graph").append("svg")
         .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+        .attr("height", height + margin.top + margin.bottom);
 
     // Axes
     var xAxisGraph = svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(" + margin.left + "," + (margin.top + height) + ")");
+    var yAxisGraph = svg.append("g")
+        .attr("class", "y axis")
+        .attr("transform", "translate(" + margin.left + "," + (margin.top) + ")");
 
     // Lines
     var lineContainer = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
         .attr("id", "lineContainer");
 
     // Update lines w/ new data ie) fetch
@@ -56,8 +61,9 @@ define(["lib/d3.min"], function(d3) {
                 ]);
         // Axis update
         xAxisGraph.call(xAxis);
+        yAxisGraph.call(yAxis);
 
-        lineContainer.append("path")
+        var myLine = lineContainer.append("path")
             .datum(data)
             .attr("class", "line")
             .attr("d", line);
@@ -76,7 +82,7 @@ define(["lib/d3.min"], function(d3) {
         lines.exit().remove();
         */
     };
-    update([1, 2, 3, 5]);
+    update([0, 1, 2, 3, 5]);
 
     function splitD3Transform(elt) {
         var transformString = elt.attr("transform");
