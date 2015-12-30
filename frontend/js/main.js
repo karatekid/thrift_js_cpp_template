@@ -9,19 +9,17 @@ requirejs([
     'graph'
 ],
 function (ExampleKO, graph) {
-console.log("Hello");
-console.log(ExampleKO);
-console.log(ExampleKO.ExampleMapping);
-console.log(graph);
 var transport = new Thrift.Transport("http://localhost:9090");
 var protocol  = new Thrift.Protocol(transport);
 var client    = new ExampleServiceClient(protocol);
-var devInfo;
-var doneDrawing = false;
+var exampleFieldHistory = [0];
 
 function getExampleStruct() {
     try {
         var d = client.getExampleStruct();
+        // Upate graph
+        exampleFieldHistory.push(d.exampleField);
+        graph.update(exampleFieldHistory);
         return d;
     } catch(NetworkError) {
         console.log("<WARNING>: Network Error.");
