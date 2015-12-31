@@ -42,3 +42,17 @@ The implementation of the backend is very project dependent, that being said the
 Enjoy writing your backend!
 
 ### Implement Frontend
+
+The fronted relies on [Knockout.js](http://knockoutjs.com/) to bind structures that you receive with [Thrift](http://thrift.apache.org/) to the DOM. It does this by using the mapping plugin, which can map JS objects to objects that are usable by Knockout. This makes the javascript that you have to write fairly straightforward. Most of it has been implemented already, if you want to add fields to your object that aren't part of your thrift definition ie) fields that are derived from your model's fields, you'll want to modify the ExampleKnockout.js file to update the ExampleVM (which stands for View Model) with additional fields. While you're at it, you should probably update the filenames to correspond more closely with your actual structures. Besides, that there isn't much to the basics of using Knockout, refer to the docs for more advanced uses.
+
+The frontend example also comes with a use of [d3](http://d3js.org/), you can use it or not, but I thought having an example use case could be helpful for various projects. You can find it in [graph.js](frontend/js/app/graph.js).
+
+The frontend also uses [require.js](http://requirejs.org/) to manage file dependencies between all of the different frontend files. Unfortunately Thrift doesn't work very well with require.js, so we cheat and throw some standard js files into index.html so they have global scope, those files are:
+* jquery
+* bootstrap
+* knockout
+* underscore
+* thrift
+Obviously, we could have better integration with require.js, but it hasn't been deemed necessary as of yet.
+
+Enjoy making a cool frontend!
