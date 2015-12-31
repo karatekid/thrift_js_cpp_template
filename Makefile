@@ -1,8 +1,6 @@
 #Compiler Directives
 CXX=g++
 CPPFLAGS= -std=c++11
-		  #-v \
-		  #-ftime-report
 LDFLAGS= -L/usr/local/lib
 LIBS= -lthrift
 #Directories
@@ -40,10 +38,12 @@ _GEN_JS=$(_GEN_JS_TYPES) $(_GEN_JS_MAIN)
 GEN_JS=$(patsubst %,$(GEN_JS_DIR)/%,$(_GEN_JS))
 
 BINFILE= run
+# TODO: Add any .cpp files in backend/lib here
 SRC= main.cpp \
 	 utils.cpp
 _OBJ=$(SRC:.cpp=.o)
 OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ)) $(GEN_OBJ)
+# TODO: Add any .h files in backend/include here
 _DEPS= easylogging++.h \
 	   utils.h
 DEPS=$(patsubst %,$(IDIR)/%,$(_DEPS)) $(GEN_DEPS)
