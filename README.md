@@ -23,7 +23,7 @@ Now that you see how it works, try making your own.
 
 ## Make it your own
 
-Before you do anything, start by forking this repo. Once you do that, you have a
+Before you do anything, start by making a new repo, cloning it, cloning this repo, and copying it into your new repo. This will allow you to start a new project with it's own separate remote. Once you do that, you have a
 couple things that need doing.
 
 * Creating thrift files to define the interface between your C++ backend and
