@@ -40,10 +40,12 @@ _GEN_JS=$(_GEN_JS_TYPES) $(_GEN_JS_MAIN)
 GEN_JS=$(patsubst %,$(GEN_JS_DIR)/%,$(_GEN_JS))
 
 BINFILE= run
-SRC= main.cpp
+SRC= main.cpp \
+	 utils.cpp
 _OBJ=$(SRC:.cpp=.o)
 OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ)) $(GEN_OBJ)
-_DEPS= easylogging++.h
+_DEPS= easylogging++.h \
+	   utils.h
 DEPS=$(patsubst %,$(IDIR)/%,$(_DEPS)) $(GEN_DEPS)
 
 #Flag Handling
