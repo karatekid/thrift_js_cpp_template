@@ -8,7 +8,10 @@ to do is:
 
 1. Run `make`
 2. execute the newly compiled `run` executable
-3. Open a browser to your local index.html
+3. Open a browser to your local index.html, it should look like this
+(without the populated graph):
+
+![Screenshot](https://cloud.githubusercontent.com/assets/2636212/12061106/b9c1a76e-af32-11e5-9d81-29089bf3a03d.png)
 
 You can get and set the variable, when you get the variable it will return twice
 what you have set it as. This is simply to show that the backend is doing
